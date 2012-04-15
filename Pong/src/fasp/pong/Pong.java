@@ -5,6 +5,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.AppGameContainer;
+import org.newdawn.slick.font.effects.ColorEffect;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.geom.Circle;
@@ -12,6 +13,8 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.UnicodeFont;
 import java.awt.Font;
+import java.lang.Integer;
+import java.awt.Color;
 
 public class Pong extends BasicGame {
 
@@ -23,15 +26,16 @@ public class Pong extends BasicGame {
 	Image ballColor;
 	Vector2f ballVelocity;
 	int player_1_score, player_2_score;
+	UnicodeFont scoreFont;
 
 	// Constants such as screen height, bat size, etc.
 	static boolean FULLSCREEN = false;
 	static int SCREEN_HEIGHT = 600;
 	static int SCREEN_WIDTH = 800;
-	static int BAT_WIDTH = 20;
+	static int BAT_WIDTH = 10;
 	static int BAT_HEIGHT = 50;
 	static int BAT_MOVEMENT_SPEED = 10;
-	static 
+
 
 	public Pong() {
 		super("Pong");
@@ -45,6 +49,8 @@ public class Pong extends BasicGame {
 		g.texture(player_1, playerColor);
 		g.texture(player_2, playerColor);
 		g.texture(ball, ballColor);
+		scoreFont.drawString(200, 20, "Player 1 score: " + player_1_score);
+		scoreFont.drawString(400, 20, "Player 2 score: " + player_2_score);
 	}
 
 	@Override
@@ -61,6 +67,11 @@ public class Pong extends BasicGame {
 		ballColor = new Image("data/tennis_ball_color.jpg");
 		player_1_score = 0;
 		player_2_score = 0;
+		//Create a font to draw scores on the screen.
+		scoreFont = new UnicodeFont(new Font("Tw Cen MT", 3, 20));
+		scoreFont.addAsciiGlyphs();
+		scoreFont.getEffects().add(new ColorEffect(java.awt.Color.DARK_GRAY));
+		scoreFont.loadGlyphs();
 	}
 
 	@Override
@@ -99,12 +110,12 @@ public class Pong extends BasicGame {
 		if (ball.intersects(player_1) || ball.intersects(player_2)) {
 			ballVelocity.x = -ballVelocity.x;
 		}else if(ball.getX() >= 800 || ball.getX() <= 0){ // If the ball reaches the edge of the screen without colliding with a player bat.
-			ball.setX(SCREEN_WIDTH / 2);
-			ball.setY(SCREEN_HEIGHT / 2);
 			if(ball.getX() >= 800)
 				player_1_score++;
 			if(ball.getX() <= 0)
 				player_2_score++;
+			ball.setX(SCREEN_WIDTH / 2);
+			ball.setY(SCREEN_HEIGHT / 2);
 		}
 	}
 

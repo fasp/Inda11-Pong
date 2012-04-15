@@ -2,12 +2,13 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="C:/Users/Leffe/Documents/Programmering/Java Libraries/slick/lib/slick.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/Leffe/Documents/Programmering/Java Libraries/slick/lib/slick.jar" sourcepath="C:/Users/Leffe/Documents/Programmering/Java Libraries/slick/lib/slick.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="file:/C:/Users/Leffe/Documents/Programmering/Java Libraries/slick/javadoc/"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Inda11-Pong/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Leffe/Documents/Programmering/Java Libraries/lwjgl-2.8.3/jar/lwjgl.jar">
+	<classpathentry exported="true" kind="lib" path="C:/Users/Leffe/Documents/Programmering/Java Libraries/lwjgl-2.8.3/jar/lwjgl.jar" sourcepath="C:/Users/Leffe/Documents/Programmering/Java Libraries/lwjgl-2.8.3/jar/lwjgl.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="file:/C:/Users/Leffe/Documents/Programmering/Java Libraries/lwjgl-2.8.3/doc/"/>
 			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Pong/lib"/>
