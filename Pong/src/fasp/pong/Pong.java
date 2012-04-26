@@ -36,7 +36,6 @@ public class Pong extends BasicGame {
 	static int BAT_HEIGHT = 50;
 	static int BAT_MOVEMENT_SPEED = 10;
 
-
 	public Pong() {
 		super("Pong");
 	}
@@ -67,7 +66,7 @@ public class Pong extends BasicGame {
 		ballColor = new Image("data/tennis_ball_color.jpg");
 		player_1_score = 0;
 		player_2_score = 0;
-		//Create a font to draw scores on the screen.
+		// Create a font to draw scores on the screen.
 		scoreFont = new UnicodeFont(new Font("Tw Cen MT", 3, 20));
 		scoreFont.addAsciiGlyphs();
 		scoreFont.getEffects().add(new ColorEffect(java.awt.Color.DARK_GRAY));
@@ -109,21 +108,29 @@ public class Pong extends BasicGame {
 		ball.setX(ball.getX() + ballVelocity.x);
 		if (ball.intersects(player_1) || ball.intersects(player_2)) {
 			ballVelocity.x = -ballVelocity.x;
-		}else if(ball.getX() >= 800 || ball.getX() <= 0){ // If the ball reaches the edge of the screen without colliding with a player bat.
-			if(ball.getX() >= 800)
+		} else if (ball.getX() >= 800 || ball.getX() <= 0) { // If the ball
+																// reaches the
+																// edge of the
+																// screen
+																// without
+																// colliding
+																// with a player
+																// bat.
+			if (ball.getX() >= 800)
 				player_1_score++;
-			if(ball.getX() <= 0)
+			if (ball.getX() <= 0)
 				player_2_score++;
 			ball.setX(SCREEN_WIDTH / 2);
 			ball.setY(SCREEN_HEIGHT / 2);
 		}
 	}
 
-	public static void main(String[] args) throws SlickException {
-		AppGameContainer app = new AppGameContainer(new Pong(), SCREEN_WIDTH, SCREEN_HEIGHT,
-				FULLSCREEN);
-		app.setTargetFrameRate(60);
-		app.start();
-	}
+	// public static void main(String[] args) throws SlickException {
+	// AppGameContainer app = new AppGameContainer(new Pong(), SCREEN_WIDTH,
+	// SCREEN_HEIGHT,
+	// FULLSCREEN);
+	// app.setTargetFrameRate(60);
+	// app.start();
+	// }
 
 }
